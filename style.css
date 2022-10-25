@@ -148,9 +148,10 @@ body {
 
 .wrapper {
     margin-top: 65px;
+    margin-bottom: 30px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(16, 6.25%);
+    grid-template-rows: repeat(16, 1fr);
     gap: 25px;
   }
 
@@ -218,4 +219,203 @@ body {
 .img7 {
     grid-column: 11 / 13;
     grid-row: 9 / 14;
+}
+
+/* pricing__header */
+
+.pricing {
+    margin-bottom: 150px;
+}
+
+.pricing__header {
+    text-align: center;
+}
+
+.pricing__title {
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 34px;
+}
+
+.pricing__subtitle {
+    font-weight: 700;
+    font-size: 32px;
+    color: #ADADAD;
+    margin-bottom: 40px;
+}
+
+.monthly {
+    color: #6C5CE7;
+    position: relative;
+}
+
+.monthly::after {
+    content: "";
+    width: 137px;
+    height: 13px;
+    background-color: #FDCB6E;
+    border-radius: 999px;
+    position: absolute;
+    top: 25px;
+    right: -4px;
+    z-index: -1;
+}
+
+/* pricing__cards */
+.pricing__cards {
+    display: flex;
+    gap: 30px;
+}
+
+.pricing__card {
+    max-width: 370px;
+    height: 536px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing__card:hover {
+    border-radius: 16px;
+    box-shadow: 0 8px 12px rgba(38, 50, 56, 0.3);
+    transition: all 500ms ease;
+
+}
+
+.pricing__card-modified {
+    position: relative;
+    z-index: 999;
+}
+
+.pricing__card-modified::before {
+    content: url(imgs/wiggle.png);
+    position: absolute;
+    z-index: -999;
+    bottom: -25px;
+    left: -25px;
+}
+
+.pricing__tariff {
+    height: 32px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #6C5CE7;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.pricing__best {
+    border: 1px solid #6C5CE7;
+    border-radius: 99px;
+    text-transform: uppercase;
+    width: 90px;
+    height: 32px;
+    text-align: center;
+    padding-top: 4px;
+}
+
+.pricing__price {
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+
+.period {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 12px;
+}
+
+.pricing__advantages {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.pricing__advantage {
+    font-size: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.pricing__advantage-gray::before {
+    content: url(imgs/check-gray.png);
+}
+
+.pricing__advantage-yellow::before {
+    content: url(imgs/check-yellow.png);
+}
+
+.pricing__advantage-blue::before {
+    content: url(imgs/check-blue.png);
+}
+
+.pricing__buy-button {
+    width: 306px;
+    height: 64px;
+    color: #6C5CE7;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid #ADADAD;
+    border-radius: 16px;
+    margin-top: auto;
+}
+
+.pricing__buy-button:hover {
+    background-color: #6C5CE7;
+    color: White;
+    transition: all 500ms ease;
+}
+
+/* features */
+
+.features__header {
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.features__text {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 40px;
+}
+
+.features__cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.features__img {
+    width: 70px;
+    height: 70px;
+}
+
+.features_feature {
+    margin: 24px 0px 16px 0px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.features_describing {
+    font-size: 15px;
+    margin-bottom: 8px;
+    line-height: 32px;
+    max-width: 270px;
+}
+
+.features__button {
+    width: 146px;
+    height: 48px;
+    color: #6C5CE7;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid #ADADAD;
+    border-radius: 16px;
 }
