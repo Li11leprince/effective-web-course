@@ -1,0 +1,74 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li {
+    margin: 0;
+}
+
+body {
+    background-color:rgb(216, 214, 214); 
+}
+
+.conteiner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.slider {
+    max-width: 30%;
+    margin: 0 auto;
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.button {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 47%;
+    z-index: 10;
+    background-color: transparent;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: none;
+    border-bottom: none;
+    transition: all ease 1s;
+    cursor: pointer;
+}
+
+.button_left {
+    left: 4%;
+    transform: rotate(-45deg);
+}
+
+.button_right {
+    right: 4%;
+    transform: rotate(135deg);
+}
+
+.slider__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all ease 1s;
+    width: 100%;
+    height: 100%;
+}

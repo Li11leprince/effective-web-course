@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="conteiner">
+        <div class="buttons">
+            <button class="buttons__button one-min">1 min</button>
+            <button class="buttons__button two-min">2 min</button>
+            <button class="buttons__button ten-min">10 min</button>
+        </div>
+
+        <div class="inputs">
+            <input type="text" class="inputs__input minutes-input" placeholder="Minutes">
+            <input type="text" class="inputs__input seconds-input" placeholder="Seconds">
+        </div>
+        <div class="timer">
+            <div class="timer__block">
+                <div class="timer__time minutes">00</div>
+                <h2 class="timer__title">Minutes</h2>
+            </div>
+            <div class="timer__block">
+                <div class="timer__time seconds">00</div>
+                <h2 class="timer__title">Seconds</h2>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="buttons__button start-button">Start</button>
+            <button class="buttons__button pause-button">Pause</button>
+            <button class="buttons__button reset-button">Reset</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
