@@ -9,7 +9,10 @@ function Comics() {
     <main className={Classes.main}>
       <div className={Classes.conteiner}>
         <h1 className={Classes.pageName}>
-          Characters <span className={Classes.quantity}>(1562)</span>
+          Comics{' '}
+          <span className={Classes.quantity}>
+            ({comics[0].data.results.length})
+          </span>
         </h1>
         <div className={Classes.searchBar}>
           <input

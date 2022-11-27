@@ -9,7 +9,7 @@ function Series() {
     <main className={Classes.main}>
       <div className={Classes.conteiner}>
         <h1 className={Classes.pageName}>
-          Characters <span className={Classes.quantity}>(1562)</span>
+          Series <span className={Classes.quantity}>({series.length})</span>
         </h1>
         <div className={Classes.searchBar}>
           <input
@@ -21,7 +21,6 @@ function Series() {
         </div>
         <div className={Classes.cards}>
           {series.map((serial) => {
-            serial.description = 'No provided description';
             return (
               <Card
                 thumbnail={serial.thumbnail}

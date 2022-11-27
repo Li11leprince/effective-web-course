@@ -11,7 +11,7 @@ const Scissors = (paragraph: string, size: number) => {
 function Card(card: {
   thumbnail: { path: string; extension: string };
   name: string;
-  description: string;
+  description: string | null;
 }) {
   return (
     <div className={Classes.card}>

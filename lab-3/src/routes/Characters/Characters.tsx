@@ -9,7 +9,8 @@ function Characters() {
     <main className={Classes.main}>
       <div className={Classes.conteiner}>
         <h1 className={Classes.pageName}>
-          Characters <span className={Classes.quantity}>(1562)</span>
+          Characters{' '}
+          <span className={Classes.quantity}>({characters.length})</span>
         </h1>
         <div className={Classes.searchBar}>
           <input
