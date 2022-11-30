@@ -1,18 +1,18 @@
 import React from 'react';
-import Classes from './Footer.module.css';
+import classes from './Footer.module.css';
 
 function Header() {
   return (
-    <footer className={Classes.footer}>
-      <div className={Classes.footer__conteiner}>
-        <img src="./marvel_logo.svg" alt="" className={Classes.footer__img} />
+    <footer className={classes.footer}>
+      <div className={classes.footer__conteiner}>
+        <img src="./marvel_logo.svg" alt="" className={classes.footer__img} />
 
-        <p className={Classes.footer__copyright}>
+        <p className={classes.footer__copyright}>
           Data provided by Marvel. © {new Date().getFullYear()}
         </p>
         <a
           href="https://developer.marvel.com"
-          className={Classes.footer__link}
+          className={classes.footer__link}
           target="_blank"
           rel="noreferrer"
         >
