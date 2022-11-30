@@ -1,0 +1,31 @@
+.header {
+  background-color: var(--header-color);
+  margin-bottom: 30px;
+}
+
+.header__conteiner {
+  margin: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.header__img {
+  height: 70%;
+}
+
+.header__routes {
+  display: flex;
+  gap: 15px;
+}
+
+.header__route {
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--links-color);
+}
+
+.active {
+  border-bottom: 1px solid var(--links-color);
+}

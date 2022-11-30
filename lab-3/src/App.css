@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white-color: #ffff;
+  --header-color: #ca270a;
+  --links-color: #f1be17;
+  --footer-color: #525252;
+  --border-color: #aaaaaa;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

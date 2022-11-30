@@ -1,0 +1,27 @@
+.footer {
+  background-color: var(--footer-color);
+}
+
+.footer__conteiner {
+  margin: 0 50px;
+  row-gap: 10px;
+  height: 140px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.footer__img {
+  height: 60%;
+}
+
+.footer__copyright {
+  color: var(--white-color);
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: var(--white-color);
+  font-size: 18px;
+}
