@@ -1,0 +1,51 @@
+.conteiner {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.main {
+  flex: 1 1 auto;
+  margin-bottom: 40px;
+}
+
+.pageName {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.quantity {
+  font-size: 22px;
+  color: var(--footer-color);
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.searchBar__input {
+  flex: 0 1 83%;
+  height: 40px;
+  padding-left: 15px;
+  border: 1px solid var(--border-color);
+  font-size: 16px;
+}
+
+.searchBar__button {
+  flex: 0 1 15%;
+  border: none;
+  background-color: var(--links-color);
+  font-size: 18px;
+  text-transform: uppercase;
+  color: var(--white-color);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  justify-content: center;
+  row-gap: 30px;
+}

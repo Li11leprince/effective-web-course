@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Children } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import MainLayout from '../layouts/mainLayout';
 import Characters from './Characters/Characters';
 import Comics from './Comics/Comics';
 import Home from './Home/Home';
 import Series from './Series/Series';
+import CharacterEntity from './Entities/CharacterEntity';
+import ComicEntity from './Entities/ComicEntity';
+import SerialEntity from './Entities/SerialEntity';
 
 const routes: RouteObject[] = [
   {
@@ -23,6 +26,18 @@ const routes: RouteObject[] = [
       {
         path: '/series',
         element: <Series />
+      },
+      {
+        path: '/characters/:id',
+        element: <CharacterEntity />
+      },
+      {
+        path: '/comics/:id',
+        element: <ComicEntity />
+      },
+      {
+        path: '/series/:id',
+        element: <SerialEntity />
       },
       { path: '*', element: <div className="">Page is not found</div> }
     ]
