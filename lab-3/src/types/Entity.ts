@@ -8,11 +8,11 @@ export interface IEntity {
   firstLinkTitle: string;
   secondLinkTitle?: string;
   firstLinks: {
-    link: string;
+    resourceURI: string;
     name: string;
   }[];
   secondLinks?: {
-    link: string;
+    resourceURI: string;
     name: string;
   }[];
 }

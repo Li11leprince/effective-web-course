@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className={classes.header}>
       <div className={classes.header__conteiner}>
-        <img src="./marvel_logo.svg" alt="" className={classes.header__img} />
+        <img src="marvel_logo.svg" alt="" className={classes.header__img} />
 
         <div className={classes.header__routes}>
           <NavLink

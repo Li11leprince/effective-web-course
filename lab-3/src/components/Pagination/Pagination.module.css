@@ -1,0 +1,27 @@
+.paginationBlock {
+  display: flex;
+  gap: 2px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.paginationItem {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: var(--links-color);
+  font-size: 18px;
+  color: var(--white-color);
+  transition: all ease 0.1s;
+  cursor: pointer;
+}
+
+.pageCurrent {
+  background-color: var(--header-color);
+}
+
+.paginationItem:hover {
+  background-color: var(--white-color);
+  color: var(--links-color);
+  border: 2px solid var(--links-color);
+}
