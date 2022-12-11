@@ -1,20 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ICard } from '../../types/Card';
 import classes from './Card.module.css';
 
-const Scissors = (paragraph: string, size: number) => {
-  if (paragraph.length < size) {
+const Scissors = (size: number, paragraph?: string) => {
+  if (paragraph && paragraph.length < size) {
     return paragraph;
   }
-  return paragraph.substring(0, size - 3) + '...';
+  if (paragraph) return paragraph.substring(0, size - 3) + '...';
 };
 
-function Card(card: {
-  id: number;
-  thumbnail: { path: string; extension: string };
-  name: string;
-  description: string | null;
-}) {
+function Card(card: ICard) {
   return (
     <Link to={String(card.id)} className={classes.card}>
       <div className={classes.card__upper}>
@@ -26,10 +22,14 @@ function Card(card: {
       </div>
 
       <div className={classes.card__bottom}>
-        <h3 className={classes.card__title}>{Scissors(card.name, 26)}</h3>
+        {card.name ? (
+          <h3 className={classes.card__title}>{Scissors(26, card.name)}</h3>
+        ) : (
+          <h3 className={classes.card__title}>{Scissors(26, card.title)}</h3>
+        )}
         <p className={classes.card__description}>
           {card.description
-            ? Scissors(card.description, 119)
+            ? Scissors(119, card.description)
             : 'No description provided'}
         </p>
       </div>

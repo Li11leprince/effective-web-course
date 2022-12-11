@@ -1,23 +1,21 @@
-import React from 'react';
-import EntityPage from '../../components/EntityPage/EntityPage';
-import { series } from '../../mock/Series';
+import { observer } from 'mobx-react-lite';
+import React, { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import EntityPage from '../../components/EntityPage/EntityPage';
 
-const GetEntity = () => {
+//store
+import serialStore from '../../stores/SerialStore';
+
+const SerialEntity: FC = () => {
+  const { serial, loading, error } = serialStore;
   const { id } = useParams();
-  return series.filter((serial) => serial.id == Number(id))[0];
+
+  useEffect(() => {
+    serialStore.getSerial(id);
+  }, []);
+
+  if (error) return <div>ERROR!!!</div>;
+  return <>{loading ? <h1>Loading...</h1> : <EntityPage entity={serial} />}</>;
 };
 
-function SerialEntity() {
-  return (
-    <EntityPage
-      thumbnail={GetEntity().thumbnail}
-      name={GetEntity().name}
-      description={GetEntity().description}
-      firstLinkTitle="Heroes"
-      firstLinks={GetEntity().heroes.items}
-    />
-  );
-}
-
-export default SerialEntity;
+export default observer(SerialEntity);

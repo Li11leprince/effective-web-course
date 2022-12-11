@@ -1,4 +1,4 @@
-export interface IHero {
+export interface ISeries {
   code: number;
   status: string;
   copyright: string;
@@ -9,16 +9,15 @@ export interface IHero {
     limit: number;
     total: number;
     count: number;
-    results: ICharacter[];
+    results: ISerialResult[];
   };
   etag: string;
 }
 
-export interface ICharacter {
+export interface ISerialResult {
   id: number;
-  name: string;
+  title: string;
   description: string;
-  modified: Date;
   resourceURI: string;
   urls: [
     {
@@ -26,6 +25,10 @@ export interface ICharacter {
       url: string;
     }
   ];
+  startYear: number;
+  endYear: number;
+  rating: string;
+  modified: Date;
   thumbnail: {
     path: string;
     extension: string;
@@ -64,7 +67,7 @@ export interface ICharacter {
       }
     ];
   };
-  series: {
+  characters: {
     available: number;
     returned: number;
     collectionURI: string;
@@ -72,7 +75,28 @@ export interface ICharacter {
       {
         resourceURI: string;
         name: string;
+        role: string;
       }
     ];
+  };
+  creators: {
+    available: number;
+    returned: number;
+    collectionURI: string;
+    items: [
+      {
+        resourceURI: string;
+        name: string;
+        role: string;
+      }
+    ];
+  };
+  next: {
+    resourceURI: string;
+    name: string;
+  };
+  previous: {
+    resourceURI: string;
+    name: string;
   };
 }

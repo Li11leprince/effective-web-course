@@ -1,26 +1,23 @@
-import React from 'react';
-import EntityPage from '../../components/EntityPage/EntityPage';
-import { IEntity } from '../../types/Entity';
-import { characters } from '../../mock/Characters';
+import { observer } from 'mobx-react-lite';
+import React, { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import EntityPage from '../../components/EntityPage/EntityPage';
 
-const GetEntity = () => {
+//store
+import characterStore from '../../stores/CharacterStore';
+
+const CharacterEntity: FC = () => {
+  const { character, loading, error } = characterStore;
   const { id } = useParams();
-  return characters.filter((character) => character.id == Number(id))[0];
+
+  useEffect(() => {
+    characterStore.getCharacter(id);
+  }, []);
+
+  if (error) return <div>ERROR!!!</div>;
+  return (
+    <>{loading ? <h1>Loading...</h1> : <EntityPage entity={character} />}</>
+  );
 };
 
-function CharacterEntity() {
-  return (
-    <EntityPage
-      thumbnail={GetEntity().thumbnail}
-      name={GetEntity().name}
-      description={GetEntity().description}
-      firstLinkTitle="Comics"
-      secondLinkTitle="Series"
-      firstLinks={GetEntity().comics.items}
-      secondLinks={GetEntity().series.items}
-    />
-  );
-}
-
-export default CharacterEntity;
+export default observer(CharacterEntity);

@@ -2,18 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './EntityPage.module.css';
 import { IEntity } from '../../types/Entity';
+import { IAll } from '../../types/AllEntities';
 
-function EntityPage(entity: IEntity) {
+interface Iint {
+  entity: IAll[];
+}
+
+function EntityPage({ entity }: Iint) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.imgWrapper}>
         <img
-          src={`${entity.thumbnail.path}.${entity.thumbnail.extension}`}
+          src={`${entity[0].thumbnail.path}.${entity[0].thumbnail.extension}`}
           alt=""
           className={classes.imgBackground}
         />
         <img
-          src={`${entity.thumbnail.path}.${entity.thumbnail.extension}`}
+          src={`${entity[0].thumbnail.path}.${entity[0].thumbnail.extension}`}
           alt=""
           className={classes.img}
         />
@@ -21,37 +26,103 @@ function EntityPage(entity: IEntity) {
       <div className={classes.info}>
         <>
           <div className={classes.info__column}>
-            <h1 className={classes.info__name}>{entity.name}</h1>
-            <p className={classes.info__description}>{entity.description}</p>
+            <h1 className={classes.info__name}>
+              {entity[0].name ?? entity[0].title}
+            </h1>
+            <p className={classes.info__description}>{entity[0].description}</p>
           </div>
-          <div className={classes.info__column}>
-            <h2 className={classes.info__title}>{entity.firstLinkTitle}</h2>
-            {entity.firstLinks.map((link) => {
-              return (
-                <Link
-                  to={link.link}
-                  className={classes.info__link}
-                  key={link.link}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </div>
-          {entity.secondLinks ? (
+          {entity[0].characters ? (
             <div className={classes.info__column}>
-              <h2 className={classes.info__title}>{entity.secondLinkTitle}</h2>
-              {entity.secondLinks?.map((link) => {
-                return (
+              {entity[0].characters ? (
+                <h2 className={classes.info__title}>Characters</h2>
+              ) : null}
+              {entity[0].characters
+                ? entity[0].characters.items.map((link) => {
+                    return (
+                      <Link
+                        to={
+                          '/' +
+                          link.resourceURI.replace(
+                            'http://gateway.marvel.com/v1/public/',
+                            ''
+                          )
+                        }
+                        className={classes.info__link}
+                        key={link.resourceURI}
+                      >
+                        {link.name}
+                      </Link>
+                    );
+                  })
+                : null}
+            </div>
+          ) : null}
+          {entity[0].series ? (
+            <div className={classes.info__column}>
+              {entity[0].series ? (
+                <h2 className={classes.info__title}>Series</h2>
+              ) : null}
+              {entity[0].series ? (
+                entity[0].series.resourceURI ? (
                   <Link
-                    to={link.link}
+                    to={
+                      '/' +
+                      entity[0].series.resourceURI.replace(
+                        'http://gateway.marvel.com/v1/public/',
+                        ''
+                      )
+                    }
                     className={classes.info__link}
-                    key={link.link}
+                    key={entity[0].series.resourceURI}
                   >
-                    {link.name}
+                    {entity[0].series.name}
                   </Link>
-                );
-              })}
+                ) : (
+                  entity[0].series.items?.map((link) => {
+                    return (
+                      <Link
+                        to={
+                          '/' +
+                          link.resourceURI.replace(
+                            'http://gateway.marvel.com/v1/public/',
+                            ''
+                          )
+                        }
+                        className={classes.info__link}
+                        key={link.resourceURI}
+                      >
+                        {link.name}
+                      </Link>
+                    );
+                  })
+                )
+              ) : null}
+            </div>
+          ) : null}
+          {entity[0].comics ? (
+            <div className={classes.info__column}>
+              {entity[0].comics ? (
+                <h2 className={classes.info__title}>Comics</h2>
+              ) : null}
+              {entity[0].comics
+                ? entity[0].comics.items.map((link) => {
+                    return (
+                      <Link
+                        to={
+                          '/' +
+                          link.resourceURI.replace(
+                            'http://gateway.marvel.com/v1/public/',
+                            ''
+                          )
+                        }
+                        className={classes.info__link}
+                        key={link.resourceURI}
+                      >
+                        {link.name}
+                      </Link>
+                    );
+                  })
+                : null}
             </div>
           ) : null}
         </>
