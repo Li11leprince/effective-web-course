@@ -1,14 +1,16 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import classes from './Footer.module.css';
 
 function Header() {
+  const { t } = useTranslation();
   return (
     <footer className={classes.footer}>
       <div className={classes.footer__conteiner}>
         <img src="./marvel_logo.svg" alt="" className={classes.footer__img} />
 
         <p className={classes.footer__copyright}>
-          Data provided by Marvel. © {new Date().getFullYear()}
+          {t('footer')} {new Date().getFullYear()}
         </p>
         <a
           href="https://developer.marvel.com"

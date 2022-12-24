@@ -7,6 +7,7 @@ import React, {
   useLayoutEffect
 } from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 // Stores
 import seriesStore from '../../stores/SeriesStore';
@@ -16,6 +17,7 @@ import searchStore from '../../stores/SearchStore';
 import pageStore from '../../stores/PageStore';
 
 const Series: FC = () => {
+  const { t } = useTranslation();
   const { series, count, loading, error } = seriesStore;
   const { page } = pageStore;
   const { nameStartsWith } = searchStore;
@@ -27,12 +29,12 @@ const Series: FC = () => {
     }
   }, [page, nameStartsWith]);
 
-  if (error) return <div>ERROR!!!</div>;
+  if (error) return <div>{t('error')}</div>;
   return (
     <>
-      <SearchBar pageName="Series" count={count} />
+      <SearchBar pageName={t('series_title')} count={count} />
       {loading ? (
-        <h1>Loading...</h1>
+        <h1>{t('loading')}</h1>
       ) : (
         <SearchPage prop={series} cathegory="series" />
       )}

@@ -7,6 +7,7 @@ import searchStore from '../../stores/SearchStore';
 import pageStore from '../../stores/PageStore';
 import themeStore from '../../stores/ThemeStore';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 const clearStores = () => {
   pageStore.delPage();
@@ -14,6 +15,7 @@ const clearStores = () => {
 };
 
 function Header() {
+  const { t, i18n } = useTranslation();
   const { theme } = themeStore;
   return (
     <header className={classes.header}>
@@ -21,6 +23,16 @@ function Header() {
         <img src="marvel_logo.svg" alt="" className={classes.header__img} />
 
         <div className={classes.header__routes}>
+          <select
+            value={localStorage.getItem('i18nextLng') ?? 'ru'}
+            onChange={(e) => {
+              i18n.changeLanguage(e.target.value);
+              localStorage.setItem('i18nextLng', e.target.value);
+            }}
+          >
+            <option value="ru">ru</option>
+            <option value="en">en</option>
+          </select>
           <button
             onClick={() => themeStore.toggleTheme()}
             className={classes.themeButton}
@@ -36,7 +48,7 @@ function Header() {
                 : classes.header__route
             }
           >
-            Characters
+            {t('characters_title')}
           </NavLink>
           <NavLink
             to="/comics"
@@ -47,7 +59,7 @@ function Header() {
                 : classes.header__route
             }
           >
-            Comics
+            {t('comics_title')}
           </NavLink>
           <NavLink
             to="/series"
@@ -58,7 +70,7 @@ function Header() {
                 : classes.header__route
             }
           >
-            Series
+            {t('series_title')}
           </NavLink>
           <NavLink
             to="/favorites"
@@ -69,7 +81,7 @@ function Header() {
                 : classes.header__route
             }
           >
-            Favorites
+            {t('favorites_title')}
           </NavLink>
         </div>
       </div>
