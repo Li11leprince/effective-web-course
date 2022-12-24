@@ -5,15 +5,38 @@
 }
 
 :root {
+}
+
+#light {
   --white-color: #ffff;
   --header-color: #ca270a;
   --links-color: #f1be17;
   --footer-color: #525252;
   --border-color: #aaaaaa;
+  --background-color: #ffff;
+  --text-color: black;
+  --yellow-color: #f1be17;
+  --red-color: #ca270a;
+  --link-color: #0400ff;
+}
+
+#dark {
+  --white-color: #ffff;
+  --header-color: #ff9102;
+  --links-color: #ffff;
+  --footer-color: #525252;
+  --border-color: #aaaaaa;
+  --background-color: rgb(12, 12, 12);
+  --text-color: #ffff;
+  --yellow-color: #f1be17;
+  --red-color: #ca270a;
+  --link-color: #00e1ff;
 }
 
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }

@@ -8,6 +8,7 @@ import Series from './Series/Series';
 import CharacterEntity from './Entities/CharacterEntity';
 import ComicEntity from './Entities/ComicEntity';
 import SerialEntity from './Entities/SerialEntity';
+import Favorites from './Favorites/Favorites';
 
 const routes: RouteObject[] = [
   {
@@ -26,6 +27,10 @@ const routes: RouteObject[] = [
       {
         path: '/series',
         element: <Series />
+      },
+      {
+        path: '/favorites',
+        element: <Favorites />
       },
       {
         path: '/characters/:id',
