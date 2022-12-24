@@ -7,32 +7,6 @@ import useDebounce from '../../hooks/useDebounce';
 import searchStore from '../../stores/SearchStore';
 import pageStore from '../../stores/PageStore';
 
-// const renderSwitch = function (location: string, nameStartsWith: string) {
-//   switch (location) {
-//     case 'characters':
-//       if (nameStartsWith != '') {
-//         charactersStore.getCharactersSearch(nameStartsWith);
-//       } else {
-//         charactersStore.getCharactersList();
-//       }
-//       break;
-//     case 'comics':
-//       if (nameStartsWith != '') {
-//         comicsStore.getComicsSearch(nameStartsWith);
-//       } else {
-//         comicsStore.getComicsList();
-//       }
-//       break;
-//     case 'series':
-//       if (nameStartsWith != '') {
-//         seriesStore.getSeriesSearch(nameStartsWith);
-//       } else {
-//         seriesStore.getSeriesList();
-//       }
-//       break;
-//   }
-// };
-
 function SearchBar(props: { pageName: string; count: number }) {
   const [nameStartsWithClick, setNameStartsWithClick] = useState('');
   searchStore.getNameStartWith(useDebounce(nameStartsWithClick, 3000));

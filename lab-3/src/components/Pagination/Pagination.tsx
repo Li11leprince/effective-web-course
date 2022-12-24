@@ -3,41 +3,7 @@ import React, { useEffect, FC, useState, useMemo } from 'react';
 import classes from './Pagination.module.css';
 
 //stores
-import charactersStore from '../../stores/CharactersStore';
-import comicsStore from '../../stores/ComicsStore';
-import seriesStore from '../../stores/SeriesStore';
-import searchStore from '../../stores/SearchStore';
 import pageStore from '../../stores/PageStore';
-
-// const renderSwitch = function (
-//   location: string,
-//   nameStartsWith: string,
-//   offset?: number
-// ) {
-//   switch (location) {
-//     case 'characters':
-//       if (nameStartsWith != '') {
-//         charactersStore.getCharactersSearch(nameStartsWith, offset);
-//       } else {
-//         charactersStore.getCharactersList(offset);
-//       }
-//       break;
-//     case 'comics':
-//       if (nameStartsWith != '') {
-//         comicsStore.getComicsSearch(nameStartsWith, offset);
-//       } else {
-//         comicsStore.getComicsList(offset);
-//       }
-//       break;
-//     case 'series':
-//       if (nameStartsWith != '') {
-//         seriesStore.getSeriesSearch(nameStartsWith, offset);
-//       } else {
-//         seriesStore.getSeriesList(offset);
-//       }
-//       break;
-//   }
-// };
 
 const getPageCount = (totalEntities: number, limit: number) => {
   return Math.ceil(totalEntities / limit);
