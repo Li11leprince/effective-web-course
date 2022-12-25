@@ -3,40 +3,7 @@ import React, { useEffect, FC, useState, useMemo } from 'react';
 import classes from './Pagination.module.css';
 
 //stores
-import charactersStore from '../../stores/CharactersStore';
-import comicsStore from '../../stores/ComicsStore';
-import seriesStore from '../../stores/SeriesStore';
-import searchStore from '../../stores/SearchStore';
-
-const renderSwitch = function (
-  location: string,
-  nameStartsWith: string,
-  offset?: number
-) {
-  switch (location) {
-    case 'characters':
-      if (nameStartsWith != '') {
-        charactersStore.getCharactersSearch(nameStartsWith, offset);
-      } else {
-        charactersStore.getCharactersList(offset);
-      }
-      break;
-    case 'comics':
-      if (nameStartsWith != '') {
-        comicsStore.getComicsSearch(nameStartsWith, offset);
-      } else {
-        comicsStore.getComicsList(offset);
-      }
-      break;
-    case 'series':
-      if (nameStartsWith != '') {
-        seriesStore.getSeriesSearch(nameStartsWith, offset);
-      } else {
-        seriesStore.getSeriesList(offset);
-      }
-      break;
-  }
-};
+import pageStore from '../../stores/PageStore';
 
 const getPageCount = (totalEntities: number, limit: number) => {
   return Math.ceil(totalEntities / limit);
@@ -52,17 +19,11 @@ const fillArray = (pageCount: number) => {
 
 const Pagination = (prop: { totalEntities: number }) => {
   const [pagies, setPagies] = useState([1]);
-  const [location, setLocation] = useState('');
-  const [page, setPage] = useState(1);
-  const { nameStartsWith } = searchStore;
+  const { page } = pageStore;
   const pageCount = useMemo(
     () => getPageCount(prop.totalEntities, 20),
     [prop.totalEntities]
   );
-  useMemo(() => {
-    setLocation(window.location.pathname.split('/').slice(-1)[0]);
-  }, []);
-  console.log(nameStartsWith);
   const pagesArray = useMemo(() => fillArray(pageCount), [prop.totalEntities]);
   useEffect(() => {
     if (page < pageCount - 1) {
@@ -109,16 +70,12 @@ const Pagination = (prop: { totalEntities: number }) => {
       ]);
     }
   }, [page, prop.totalEntities]);
-  console.log(pagies);
-  useEffect(() => {
-    renderSwitch(location, nameStartsWith, (page - 1) * 20);
-  }, [page]);
   return (
     <div className={classes.paginationBlock}>
       {pagies.map((p) => (
         <button
           key={p}
-          onClick={() => setPage(p)}
+          onClick={() => pageStore.getPage(p)}
           className={
             page === p
               ? `${classes.paginationItem} ${classes.pageCurrent}`

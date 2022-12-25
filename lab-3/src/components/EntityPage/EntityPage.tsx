@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import classes from './EntityPage.module.css';
 import { IEntity } from '../../types/Entity';
 import { IAll } from '../../types/AllEntities';
+import { useTranslation } from 'react-i18next';
 
 interface Iint {
   entity: IAll[];
 }
 
 function EntityPage({ entity }: Iint) {
+  const { t } = useTranslation();
   return (
     <div className={classes.wrapper}>
       <div className={classes.imgWrapper}>
@@ -34,7 +36,7 @@ function EntityPage({ entity }: Iint) {
           {entity[0].characters ? (
             <div className={classes.info__column}>
               {entity[0].characters ? (
-                <h2 className={classes.info__title}>Characters</h2>
+                <h2 className={classes.info__title}>{t('characters_title')}</h2>
               ) : null}
               {entity[0].characters
                 ? entity[0].characters.items.map((link) => {
@@ -60,7 +62,7 @@ function EntityPage({ entity }: Iint) {
           {entity[0].series ? (
             <div className={classes.info__column}>
               {entity[0].series ? (
-                <h2 className={classes.info__title}>Series</h2>
+                <h2 className={classes.info__title}>{t('series_title')}</h2>
               ) : null}
               {entity[0].series ? (
                 entity[0].series.resourceURI ? (
@@ -102,7 +104,7 @@ function EntityPage({ entity }: Iint) {
           {entity[0].comics ? (
             <div className={classes.info__column}>
               {entity[0].comics ? (
-                <h2 className={classes.info__title}>Comics</h2>
+                <h2 className={classes.info__title}>{t('comics_title')}</h2>
               ) : null}
               {entity[0].comics
                 ? entity[0].comics.items.map((link) => {

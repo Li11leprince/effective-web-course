@@ -1,0 +1,17 @@
+.conteiner {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.main {
+  flex: 1 1 auto;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  justify-content: center;
+  row-gap: 30px;
+}

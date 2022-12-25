@@ -6,6 +6,10 @@
   height: 300px;
   transition: all 0.1s ease-in-out;
   cursor: pointer;
+  position: relative;
+}
+
+.cardLink {
   text-decoration: none;
 }
 
@@ -36,5 +40,33 @@
 }
 
 .card__description {
-  color: var(--footer-color);
+  color: var(--text-color);
+}
+
+.unliked,
+.liked {
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  z-index: 100;
+  padding: 5px;
+  border-radius: 15px;
+  display: none;
+  color: black;
+  cursor: pointer;
+  right: 5px;
+}
+
+.card:hover .unliked,
+.liked {
+  display: flex;
+}
+
+.liked g g path {
+  fill: red;
+}
+
+.unliked g g path {
+  fill: transparent;
+  stroke: red;
 }
